@@ -12,15 +12,16 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.jalalkiswani</groupId>
-			<artifactId>smart-cloud-service-client</artifactId>
+			<artifactId>smart-cloud-web</artifactId>
 			<version>${smart-cloud.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.jalalkiswani</groupId>
-			<artifactId>smart-cloud-web</artifactId>
+			<artifactId>smart-cloud-data</artifactId>
 			<version>${smart-cloud.version}</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>com.jalalkiswani</groupId>
 			<artifactId>smart-cloud-standalone</artifactId>

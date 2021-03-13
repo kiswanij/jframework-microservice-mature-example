@@ -1,7 +1,6 @@
-package com.app.service;
+package com.app.person;
 
 import java.util.List;
-import java.util.Vector;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -14,48 +13,48 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.app.model.Account;
 import com.jk.db.dataaccess.orm.JKObjectDataAccess;
 import com.jk.db.datasource.JKDataAccessFactory;
 
-@Path("/accounts")
+@Path("/persons")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class AccountService {
+public class Service {
 	JKObjectDataAccess da = JKDataAccessFactory.getObjectDataAccess();
 
 	@GET
 	public Response getAll() {
-		List<Account> list = da.getList(Account.class);
+		List<Model> list = da.getList(Model.class);
 		return Response.status(200).entity(list).build();
 	}
 
 	@GET
 	@Path("/{id}")
 	public Response find(@PathParam("id") int id) {
-		Account account = da.find(Account.class, id);
-		if (account == null) {
+		Model person = da.find(Model.class, id);
+		if (person == null) {
 			return Response.status(404).build();
 		}
-		return Response.status(200).entity(account).build();
+		return Response.status(200).entity(person).build();
 	}
 
 	@POST
-	public Response insert(Account account) {
-		da.insert(account);
-		return Response.status(201).entity(account).build();
+	public Response insert(Model person) {
+		da.insert(person);
+		return Response.status(201).entity(person).build();
 	}
 
 	@PUT
-	public Response update(Account account) {
-		da.update(account);
-		return Response.status(201).entity(account).build();
+	@Path("/{id}")
+	public Response update(Model person) {
+		da.update(person);
+		return Response.status(201).entity(person).build();
 	}
-	
+
 	@DELETE
 	@Path("/{id}")
 	public Response delete(@PathParam("id") int id) {
-		da.delete(Account.class, id);
+		da.delete(Model.class, id);
 		return Response.status(201).build();
 	}
 

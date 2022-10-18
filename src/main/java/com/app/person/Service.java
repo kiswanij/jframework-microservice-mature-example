@@ -13,14 +13,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.jk.db.dataaccess.orm.JKObjectDataAccess;
-import com.jk.db.datasource.JKDataAccessFactory;
+import com.jk.data.dataaccess.JKDataAccessFactory;
+import com.jk.data.dataaccess.orm.JKObjectDataAccess;
 
 @Path("/persons")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class Service {
-	JKObjectDataAccess da = JKDataAccessFactory.getObjectDataAccess();
+	JKObjectDataAccess da = JKDataAccessFactory.getObjectDataAccessService();
 
 	@GET
 	public Response getAll() {

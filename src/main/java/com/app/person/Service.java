@@ -13,6 +13,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.jk.core.util.JK;
 import com.jk.data.dataaccess.JKDataAccessFactory;
 import com.jk.data.dataaccess.orm.JKObjectDataAccess;
 
@@ -46,7 +47,8 @@ public class Service {
 
 	@PUT
 	@Path("/{id}")
-	public Response update(Model person) {
+	public Response update(@PathParam("id") int id, Model person) {
+		JK.fixMe("Validate againest the provided id, and check if exists");
 		da.update(person);
 		return Response.status(201).entity(person).build();
 	}

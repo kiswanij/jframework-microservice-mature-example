@@ -16,7 +16,7 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.Response;
 
 @Path("/persons")
-public class Service extends JKAbstractRestController{
+public class Controller extends JKAbstractRestController{
 	JKObjectDataAccess da = JKDataAccessFactory.getObjectDataAccessService();
 
 	@GET

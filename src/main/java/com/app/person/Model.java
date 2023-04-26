@@ -1,6 +1,9 @@
 package com.app.person;
 
 import java.io.Serializable;
+import java.sql.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,6 +11,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name="person")
@@ -29,6 +35,8 @@ public class Model implements Serializable {
 	
 	@Column(name="address")
 	private String address;
+	
+	private Date birthDate; 
 	
 
 	public void setId(Integer id){
@@ -98,4 +106,14 @@ public class Model implements Serializable {
 	  buf.append(this.address).append(",");
 	  return buf.toString();
 	}
+
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+	
+	
 }

@@ -1,7 +1,7 @@
-# JKFramework Mature Microservice Example
+# JFramework Mature Microservice Example
 _Last updated: 2022-11-26_
 
-This repository contains  _JKFramework-Service_ example to create a mature microservice.
+This repository contains  _JFramework-Service_ example to create a mature microservice.
 
 ## Prerequisites:
 - JDK 17+ Installed
